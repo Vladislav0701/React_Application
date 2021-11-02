@@ -8,7 +8,7 @@ class EmployeesAddForm  extends Component{
         this.state = {
             name: '',
             salary: ''
-        }
+        };
     }
 
     onValueChange = (e) => {
@@ -17,16 +17,17 @@ class EmployeesAddForm  extends Component{
         })
     }
 
-    onAddItem = () => {
-        this.addItem({
-            name: this.state.name,
-            salary: this.state.salary
+    onAddItem = (e) => {
+        e.preventDefault();
+        this.props.onAdd(this.state.name, this.state.salary);
+        this.setState({
+            name: '',
+            salary: ''
         })
     }
 
    render() {
-    const {name, salary} = this.state
-
+    const {name, salary} = this.state;
     return (
         <div className="app-add-form">
             <h3>Добавьте нового сотрудника</h3>

@@ -35,7 +35,7 @@ class App extends Component {
             salary,
             increase: false,
             rise: false,
-            id: this.maxId
+            id: this.maxId++
         }
         this.setState(({data}) => {
             const newArr = [...data, newItem]
@@ -86,7 +86,7 @@ class App extends Component {
                     onToggleRise={this.onToggleRise}/>
                 <EmployeesAddForm
                     data={this.state.data}
-                    addItem={this.addItem} />
+                    onAdd={this.addItem} />
             </div>
         )
     }
